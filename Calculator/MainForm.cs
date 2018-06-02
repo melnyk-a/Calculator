@@ -33,10 +33,7 @@ namespace Calculator
         {
             if (operandManager.First == null && bufferManager.Buffer.Length > 0)
             {
-                foreach (Button button in operantionButtonProvider.Buttons)
-                {
-                    button.Enabled = true;
-                }
+                EnableOptionsButton(true);
                 resultButton.Enabled = false;
             }
             else if (operandManager.First != null && bufferManager.Buffer.Length > 0)
@@ -101,6 +98,7 @@ namespace Calculator
         {
             bufferManager.Clear();
             currentInputTextBox.Text = null;
+            EnableOptionsButton(false);
             if (operandManager.First != null)
             {
                 resultButton.Enabled = false;
@@ -130,10 +128,7 @@ namespace Calculator
             currentInputTextBox.Text = bufferManager.Buffer;
             previousInputLabel.Text = $"{operandManager.First}{operation}";
 
-            foreach (Button button in operantionButtonProvider.Buttons)
-            {
-                button.Enabled = false;
-            }
+            EnableOptionsButton(false);
         }
 
         private void ProcessResult()
@@ -146,6 +141,14 @@ namespace Calculator
             operandManager.First = null;
             operandManager.Second = null;
             resultButton.Enabled = false;
+        }
+
+        private void EnableOptionsButton(bool enabled)
+        {
+            foreach (Button button in operantionButtonProvider.Buttons)
+            {
+                button.Enabled = enabled;
+            }
         }
     }
 }
