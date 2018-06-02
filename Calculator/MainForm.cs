@@ -107,8 +107,7 @@ namespace Calculator
 
         private void ProcessDigitInput(string input)
         {
-            if ((input == button0.Text && bufferManager.Buffer.Length > 0) ||
-                input != button0.Text)
+            if (!bufferManager.Buffer.StartsWith(button0.Text))
             {
                 bufferManager.Append(input);
                 currentInputTextBox.Text = bufferManager.Buffer;
