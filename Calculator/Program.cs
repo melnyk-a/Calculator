@@ -4,7 +4,7 @@ using System.Windows.Forms;
 
 namespace Calculator
 {
-    static class Program
+    internal static class Program
     {
         [DllImport("user32")]
         private static extern void SetProcessDPIAware();
