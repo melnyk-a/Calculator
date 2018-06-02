@@ -16,7 +16,7 @@ namespace Calculator
             this.operation = operation;
         }
 
-        public int Value { get => operation; }
+        public int Value => operation;
 
         public override string ToString()
         {

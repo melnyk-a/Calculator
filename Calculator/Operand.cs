@@ -16,7 +16,7 @@ namespace Calculator
             this.value = Convert.ToInt32(value);
         }
 
-        public int Value { get => value; }
+        public int Value => value;
 
         public override string ToString()
         {
