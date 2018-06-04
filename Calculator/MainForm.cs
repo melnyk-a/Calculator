@@ -107,14 +107,15 @@ namespace Calculator
 
         private void ProcessDigitInput(string input)
         {
-            if (!bufferManager.Buffer.StartsWith(button0.Text))
+            if (bufferManager.Buffer.StartsWith(button0.Text))
             {
-                bufferManager.Append(input);
-                currentInputTextBox.Text = bufferManager.Buffer;
-                if (operandManager.First != null)
-                {
-                    previousInputLabel.Text = $"{operandManager.First}{operation}";
-                }
+                bufferManager.Clear();
+            }
+            bufferManager.Append(input);
+            currentInputTextBox.Text = bufferManager.Buffer;
+            if (operandManager.First != null)
+            {
+                previousInputLabel.Text = $"{operandManager.First}{operation}";
             }
         }
 
